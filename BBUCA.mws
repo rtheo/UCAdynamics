@@ -1,0 +1,281 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{CSTYLE "" -1 256 "" 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+257 "" 0 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 }{PSTYLE "Normal" -1 0 1 
+{CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }1 1 0 0 0 
+0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 11 1 {CSTYLE "" -1 -1 "Ti
+mes" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 3 0 0 0 0 1 0 1 0 2 2 0 1 }}
+{SECT 0 {EXCHG {PARA 0 "" 0 "" {TEXT -1 0 "" }{TEXT 256 0 "" }{TEXT 
+257 56 "Analysis of Bialinycki-Birula Unitary Cellular Automata " }}
+{PARA 0 "" 0 "" {TEXT -1 87 "Original unitary matrices as defined in B
+ialinycki-Birula: Phys. Rev. D 49, 6920 (1994)" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 28 "restart;with(LinearAlgebra):" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 74 "p1:=<<1|0>,<1|0>>;p2:=<<0|1>,<0|1>>;p3:=<
+<1|0>,<-1|0>>;p4:=<<0|-1>,<0|1>>;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>
+%#p1G-%'RTABLEG6%\"*G;y]\"-%'MATRIXG6#7$7$\"\"\"\"\"!F-%'MatrixG" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#p2G-%'RTABLEG6%\"*/Iy]\"-%'MATRIXG6
+#7$7$\"\"!\"\"\"F-%'MatrixG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#p3G-
+%'RTABLEG6%\"*[Ly]\"-%'MATRIXG6#7$7$\"\"\"\"\"!7$!\"\"F/%'MatrixG" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#p4G-%'RTABLEG6%\"*!y$y]\"-%'MATRIXG
+6#7$7$\"\"!!\"\"7$F.\"\"\"%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 142 "phi1:=<psi1,xi1>:phi2:=<psi2,xi2>:phi3:=<psi3, xi3>:
+phi4:=<psi4, xi4>:phi5:=<psi5, xi5>:phi6:=<psi6, xi6>:phi7:=<psi7, xi7
+>:phi8:=<psi8, xi8>:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 59 "Neighborh
+ood Summand from original Birula unitary matrices:" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 259 "N:=a*MatrixVectorMultiply(p1,phi8)+a*Matri
+xVectorMultiply(p2,phi2)+a*MatrixVectorMultiply(p3,phi5)+b*MatrixVecto
+rMultiply(p2,phi4)+b*MatrixVectorMultiply(p3,phi7)+b*MatrixVectorMulti
+ply(p4,phi1)+b*MatrixVectorMultiply(p1,phi6)+a*MatrixVectorMultiply(p4
+,phi3);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"NG-%'RTABLEG6%\"*3Ty]\"
+-%'MATRIXG6#7$7#,2*&%\"aG\"\"\"%%psi8GF1F1*&F0F1%$xi2GF1F1*&F0F1%%psi5
+GF1F1*&%\"bGF1%$xi4GF1F1*&F8F1%%psi7GF1F1*&F8F1%$xi1GF1!\"\"*&F8F1%%ps
+i6GF1F1*&F0F1%$xi3GF1F>7#,2F/F1F3F1F5F>F7F1F:F>F<F1F?F1FAF1&%'VectorG6
+#%'columnG" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 100 "Build a symmetric \+
+Scattering Matrix (1/4)*K (Upper & lower two rows exchange Psi for Xi \+
+conjugates)." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 50 "K0:=<<a|b|b
+|a>,<-a|b|-b|a>,<-b|a|-a|b>,<b|a|a|b>>;" }{TEXT -1 0 "" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#>%#K0G-%'RTABLEG6%\"*?[y]\"-%'MATRIXG6#7&7&%\"aG%
+\"bGF/F.7&,$F.!\"\"F/,$F/F2F.7&F3F.F1F/7&F/F.F.F/%'MatrixG" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 23 "Properties of K matrix:" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 133 "K:=subs(a=1+I,subs(b=1-I,K0)):simplify(e
+val(Determinant(K)));F,Q=FrobeniusForm(K,output=['F','Q']);U,V=SmithFo
+rm(K,output=['U','V']);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#!#k" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6$%\"FG/%\"QG6$-%'RTABLEG6%\"*S_y]\"-%'M
+ATRIXG6#7&7&\"\"!F0F0\"#k7&\"\"\"F0F0^$!#;F57&F0F3F0^#\"\")7&F0F0F3^$
+\"\"#!\"#%'MatrixG-F(6%\"*!o&y]\"-F,6#7&7&F3^$F3F3^#\"\"%^$!\")FI7&F0^
+$!\"\"FL^#!\"%^$F8FI7&F0^$FLF3FMFH7&F0^$F3FLFMFOF=" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6$%\"UG/%\"VG6$-%'RTABLEG6%\"*Chy]\"-%'MATRIXG6#7&7&\"
+\"!F0F0^$#\"\"\"\"\"#F27&F0F0^$#F3\"\"%#!\"\"F8F67&F0^$F9F9F0F67&^$#F3
+\"\")#F:F@F>^$F?F?FB%'MatrixG-F(6%\"*cly]\"-F,6#7&7&F3^#F:FKF37&F0F3F0
+^#F37&F0F0F3FM7&F0F0F0F3FC" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 59 "K h
+as an anti-Hadamard property and a permutation property:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 40 "MatrixMatrixMultiply(K, Transpose(K
+))/8;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*gqy]\"-%'MATRI
+XG6#7&7&\"\"!F,F,\"\"\"7&F,F,F-F,7&F,F-F,F,7&F-F,F,F,%'MatrixG" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 43 "P:=MatrixMatrixMultiply(Tran
+spose(K), K)/8;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"PG-%'RTABLEG6%
+\"*3vy]\"-%'MATRIXG6#7&7&\"\"!F.\"\"\"F.7&F.F.F.F/7&F/F.F.F.7&F.F/F.F.
+%'MatrixG" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 53 "Original summand bec
+omes (K.Psi) + ((P.K).Xi) -> Out:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 178 "psi:=<psi5, psi6, psi7, psi8>:xi:=<xi1, xi2, xi3, xi
+4>:k1:=MatrixVectorMultiply(K,psi):k2:= MatrixVectorMultiply(K,xi):kk:
+=k1+MatrixVectorMultiply(P,k2):New1:=simplify(eval(kk));" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#>%%New1G-%'RTABLEG6%\"*Szy]\"-%'MATRIXG6#7&7#,B%
+%psi5G\"\"\"*&%%psi8GF0^#F0F0F0%%psi6GF0*&%$xi1GF0F3F0F0%%psi7GF0*&F/F
+0F3F0F0F2F0*&^#!\"\"F0%$xi4GF0F0F6F;*&F:F0F4F0F0%$xi2GF0*&F>F0F3F0F0%$
+xi3GF;*&F:F0F7F0F0F<F0*&F:F0F@F0F07#,BF/F;F1F0F4F0*&F:F0F6F0F0F7F;*&F:
+F0F/F0F0F2F0F9F0F6F0F=F0F>F0F?F0F@F0*&F7F0F3F0F0F<F0*&F@F0F3F0F07#,BF/
+F;*&F:F0F2F0F0F4F0F5F0F7F;F8F0F2F0*&F<F0F3F0F0F6F0*&F4F0F3F0F0F>F0*&F:
+F0F>F0F0F@F0FAF0F<F0FBF07#,BF/F0FKF0F4F0FEF0F7F0FFF0F2F0FLF0F6F;FMF0F>
+F0FNF0F@F;FGF0F<F0FHF0&%'VectorG6#%'columnG" }}}{EXCHG {PARA 0 "" 0 "
+" {TEXT -1 32 "Verify against original summand:" }}}{PARA 11 "" 1 "" 
+{TEXT -1 0 "" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 155 "New2:=simpl
+ify(eval(subs(a=1+I,subs(b=1-I,N)))):New1[1] - New2[1];New1[2] - New2[
+2];evalc(conjugate(New1[1]) -New1[4]);evalc(conjugate(New1[2]) -New1[3
+]); " }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 37 "Alternative: K.Psi + K1.Xi, K1 = P.K:" }}}{EXCHG {PARA 0 
+"" 0 "" {TEXT -1 0 "" }}{PARA 11 "" 1 "" {TEXT -1 0 "" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 146 "K1:=MatrixMatrixMultiply(P, K):sim
+plify(eval(Determinant(K1)));MatrixMatrixMultiply(K1, Transpose(K1))/8
+;MatrixMatrixMultiply(Transpose(K1),K1)/8;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#!#k" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*7
+#*y]\"-%'MATRIXG6#7&7&\"\"!F,F,\"\"\"7&F,F,F-F,7&F,F-F,F,7&F-F,F,F,%'M
+atrixG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*g'*y]\"-%'MAT
+RIXG6#7&7&\"\"!F,\"\"\"F,7&F,F,F,F-7&F-F,F,F,7&F,F-F,F,%'MatrixG" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 86 "Alternative separation of original
+ summand separating real and imaginary coefficients:" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 54 "evalc(New1[1] + New1[4])/2;evalc(New1[2] \+
++ New1[3])/2;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,2%%psi5G\"\"\"%%psi6
+GF%%%psi7GF%%%psi8GF%%$xi1G!\"\"%$xi2GF%%$xi3GF*%$xi4GF%" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#,2%%psi5G!\"\"%%psi6G\"\"\"%%psi7GF%%%psi8GF'%$x
+i1GF'%$xi2GF'%$xi3GF'%$xi4GF'" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 26 "
+Introduce two new matrices" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+104 "H1:=<<1|1|1|1>,<1|-1|-1|1>,<-1|1|-1|1>,<-1|-1|1|1>>;H2:=<<1|1|1|1
+>,<-1|1|1|-1>,<-1|1|-1|1>,<1|1|-1|-1>>;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%#H1G-%'RTABLEG6%\"*k,z]\"-%'MATRIXG6#7&7&\"\"\"F.F.F.7&F.!\"\"
+F0F.7&F0F.F0F.7&F0F0F.F.%'MatrixG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>
+%#H2G-%'RTABLEG6%\"*'f!z]\"-%'MATRIXG6#7&7&\"\"\"F.F.F.7&!\"\"F.F.F07&
+F0F.F0F.7&F.F.F0F0%'MatrixG" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 33 "Ha
+damard property holds for both:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 82 "MatrixMatrixMultiply(H1,Transpose(H1))/4;MatrixMatrixMultiply(
+H2,Transpose(H2))/4;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"
+*G5z]\"-%'MATRIXG6#7&7&\"\"\"\"\"!F-F-7&F-F,F-F-7&F-F-F,F-7&F-F-F-F,%'
+MatrixG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*+>&=:-%'MATR
+IXG6#7&7&\"\"\"\"\"!F-F-7&F-F,F-F-7&F-F-F,F-7&F-F-F-F,%'MatrixG" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 39 "We also need two Connectivity matr
+ices:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 92 "P1:=<<1|I|0|0>,<0|
+0|1|I>,<0|0|1|I>,<1|I|0|0>>;P2:=<<0|0|1|I>,<1|I|0|0>,<1|I|0|0>,<0|0|1|
+I>>;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#P1G-%'RTABLEG6%\"*WA&=:-%'M
+ATRIXG6#7&7&\"\"\"^#F.\"\"!F07&F0F0F.F/F1F-%'MatrixG" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#>%#P2G-%'RTABLEG6%\"*wE&=:-%'MATRIXG6#7&7&\"\"!F.\"
+\"\"^#F/7&F/F0F.F.F1F-%'MatrixG" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 
+131 "Introduce new pair of scattering matrices as S1 = P1.H1, S2 = P2:
+H2 to make original summand in the form (S1.Psi) + (S2.Xi) -> Out:" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 150 "S1:=MatrixMatrixMultiply(P
+1,H1):S2:=MatrixMatrixMultiply(P2,H2):pp:=MatrixVectorMultiply(S1,psi)
++MatrixVectorMultiply(S2,xi):New3:=simplify(eval(pp));" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#>%%New3G-%'RTABLEG6%\"*3J&=:-%'MATRIXG6#7&7#,B%%ps
+i5G\"\"\"*&%%psi8GF0^#F0F0F0%%psi6GF0*&%$xi1GF0F3F0F0%%psi7GF0*&F/F0F3
+F0F0F2F0*&^#!\"\"F0%$xi4GF0F0F6F;*&F:F0F4F0F0%$xi2GF0*&F>F0F3F0F0%$xi3
+GF;*&F:F0F7F0F0F<F0*&F:F0F@F0F07#,BF/F;F1F0F4F0*&F:F0F6F0F0F7F;*&F:F0F
+/F0F0F2F0F9F0F6F0F=F0F>F0F?F0F@F0*&F7F0F3F0F0F<F0*&F@F0F3F0F0FCF-&%'Ve
+ctorG6#%'columnG" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 24 "Verify agains
+t original:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 64 "New3[1]-New2
+[1];New3[2]-New2[2];New3[3]-New2[2];New3[4]-New2[1];" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 84 "MatrixInverse(K
+)*8-K;MatrixInverse(K1)*8-K1;MatrixInverse(H1)*4;MatrixInverse(H2)*4;
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*g-(=:-%'MATRIXG6#7&
+7&^#!\"#^$F-\"\"#F-\"\"!7&^$F/F/^#F/^$F/F-F,7&F/^$F-F-F3F07&F0F,F0F3%'
+MatrixG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*_2(=:-%'MATR
+IXG6#7&7&^#!\"#\"\"!\"\"#^$F-F/7&F.F,F.^#F/7&F-F.F2^$F-F-7&^$F/F/F2^$F
+/F-F,%'MatrixG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*+7(=:
+-%'MATRIXG6#7&7&\"\"\"F,!\"\"F-7&F,F-F,F-7&F,F-F-F,7&F,F,F,F,%'MatrixG
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*K;(=:-%'MATRIXG6#7&
+7&\"\"\"!\"\"F-F,7&F,F,F,F,7&F,F,F-F-7&F,F-F,F-%'MatrixG" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "0 0 2" 56 }{VIEWOPTS 1 
+1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }{RTABLE_HANDLES 
+150781628 150783004 150783348 150783780 150784108 150784820 150785240 
+150785680 150786124 150786556 150787060 150787508 150787940 150789212 
+150789660 150790164 150790596 150791028 151851900 151852244 151852676 
+151853108 151870260 151870752 151871200 151871632 }{RTABLE 
+M7R0
+I6RTABLE_SAVE/150781628X,%)anythingG6"6"[gl!"%!!!#%"#"#"""F'""!F(6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150783004X,%)anythingG6"6"[gl!"%!!!#%"#"#""!F'"""F(6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150783348X,%)anythingG6"6"[gl!"%!!!#%"#"#"""!""""!F)6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150783780X,%)anythingG6"6"[gl!"%!!!#%"#"#""!F'!"""""6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150784108X*%)anythingG6"6"[gl!#%!!!"#"#,2*&%"aG"""%%psi8GF*F**&F)
+F*%$xi2GF*F**&F)F*%%psi5GF*F**&%"bGF*%$xi4GF*F**&F1F*%%psi7GF*F**&F1F*%$xi1GF*!
+""*&F1F*%%psi6GF*F**&F)F*%$xi3GF*F7,2F(F*F,F*F.F7F0F*F3F7F5F*F8F*F:F*6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150784820X,%)anythingG6"6"[gl!"%!!!#1"%"%%"aG,$F'!"",$%"bGF)F+F+F
++F'F'F+F*F(F'F'F'F+F+6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150785240X,%)anythingG6"6"[gl!"%!!!#1"%"%""!"""F'F'F'F'F(F'F'F'F'
+F("#k^$!#;F+^#"")^$""#!"#6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150785680X,%)anythingG6"6"[gl!"%!!!#1"%"%"""""!F(F(^$F'F'^$!""F+^
+$F+F'^$F'F+^#""%^#!"%F0F0^$!")F3^$"")F3F2F46"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150786124X,%)anythingG6"6"[gl!"%!!!#1"%"%""!F'F'^$#""""")#!""F+F'
+F'^$#F-""%F/F(F'^$#F*F0F/F'^$F)F)^$#F*""#F5F1F1F36"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150786556X,%)anythingG6"6"[gl!"%!!!#1"%"%"""""!F(F(^#!""F'F(F(F)F
+(F'F(F'^#F'F+F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150787060X,%)anythingG6"6"[gl!"%!!!#1"%"%""!F'F'"""F'F'F(F'F'F(F'
+F'F(F'F'F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150787508X,%)anythingG6"6"[gl!"%!!!#1"%"%""!F'"""F'F'F'F'F(F(F'F'
+F'F'F(F'F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150787940X*%)anythingG6"6"[gl!#%!!!"%"%,B%%psi5G"""*&^#F)F)%%psi8
+GF)F)%%psi6GF)*&^#!""F)%%psi7GF)F)F1F)*&F+F)%$xi1GF)F)F,F)*&F/F)%$xi4GF)F)F3F0*
+&F+F)F(F)F)%$xi2GF)*&F+F)F7F)F)%$xi3GF0*&F/F)F-F)F)F5F)*&F/F)F9F)F),BF(F0F*F)F-
+F)*&F+F)F1F)F)F1F0*&F/F)F3F)F)F,F)F4F)F3F)*&F/F)F(F)F)F7F)F8F)F9F)F:F)F5F)*&F+F
+)F9F)F),BF(F0*&F/F)F,F)F)F-F)F.F)F1F0F2F)F,F)*&F+F)F5F)F)F3F)F6F)F7F)*&F/F)F7F)
+F)F9F)*&F+F)F-F)F)F5F)F;F),BF(F)FBF)F-F)F=F)F1F)F>F)F,F)FCF)F3F0F?F)F7F)FDF)F9F
+0FEF)F5F)F@F)6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150789212X,%)anythingG6"6"[gl!"%!!!#1"%"%""!F'F'"""F'F'F(F'F'F(F'
+F'F(F'F'F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150789660X,%)anythingG6"6"[gl!"%!!!#1"%"%""!F'"""F'F'F'F'F(F(F'F'
+F'F'F(F'F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150790164X,%)anythingG6"6"[gl!"%!!!#1"%"%"""F'!""F(F'F(F'F(F'F(F(
+F'F'F'F'F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150790596X,%)anythingG6"6"[gl!"%!!!#1"%"%"""!""F(F'F'F'F'F'F'F'F(
+F(F'F(F'F(6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/150791028X,%)anythingG6"6"[gl!"%!!!#1"%"%"""""!F(F(F(F'F(F(F(F(F'
+F(F(F(F(F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/151851900X,%)anythingG6"6"[gl!"%!!!#1"%"%"""""!F(F(F(F'F(F(F(F(F'
+F(F(F(F(F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/151852244X,%)anythingG6"6"[gl!"%!!!#1"%"%"""""!F(F'^#F'F(F(F)F(F'
+F'F(F(F)F)F(6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/151852676X,%)anythingG6"6"[gl!"%!!!#1"%"%""!"""F(F'F'^#F(F)F'F(F'
+F'F(F)F'F'F)6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/151853108X*%)anythingG6"6"[gl!#%!!!"%"%,B%%psi5G"""*&^#F)F)%%psi8
+GF)F)%%psi6GF)*&^#!""F)%%psi7GF)F)F1F)*&F+F)%$xi1GF)F)F,F)*&F/F)%$xi4GF)F)F3F0*
+&F+F)F(F)F)%$xi2GF)*&F+F)F7F)F)%$xi3GF0*&F/F)F-F)F)F5F)*&F/F)F9F)F),BF(F0F*F)F-
+F)*&F+F)F1F)F)F1F0*&F/F)F3F)F)F,F)F4F)F3F)*&F/F)F(F)F)F7F)F8F)F9F)F:F)F5F)*&F+F
+)F9F)F)F<F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/151870260X,%)anythingG6"6"[gl!"%!!!#1"%"%^#!"#^$""#F*F*""!^$F(F*^
+#F*^$F(F(F'F(^$F*F(F-F+F+F'F+F-6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/151870752X,%)anythingG6"6"[gl!"%!!!#1"%"%^#!"#""!F(^$""#F+F)F'F)^
+#F+F+F)F,^$F+F(^$F(F+F,^$F(F(F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/151871200X,%)anythingG6"6"[gl!"%!!!#1"%"%"""F'F'F'F'!""F(F'F(F'F(
+F'F(F(F'F'6"
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/151871632X,%)anythingG6"6"[gl!"%!!!#1"%"%"""F'F'F'!""F'F'F(F(F'F(
+F'F'F'F(F(6"
+}
+
