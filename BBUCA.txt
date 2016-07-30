@@ -1,0 +1,136 @@
+P1 = ((1, 0),(1, 0))
+P2 = ((0, 1),(0, 1))
+P3 = ((1, 0),(-1, 0))
+P4 = ((0, -1),(0, 1))
+"Original Bialinycki-Birula Unitary Matrices"
+"Publication: Phys. Rev. D 49, 6920 (1994)."
+P1
+"-------"
+P2
+"-------"
+P3
+"-------"
+P4
+"-------"
+" "
+phi1 = (psi1, xi1)
+phi2 = (psi2, xi2)
+phi3 = (psi3, xi3)
+phi4 = (psi4, xi4)
+phi5 = (psi5, xi5)
+phi6 = (psi6, xi6)
+phi7 = (psi7, xi7)
+phi8 = (psi8, xi8)
+"Neighborhood Summand from original BB matrices"
+P = a*dot(P1,phi8)+a*dot(P2,phi2)+a*dot(P3,phi5)+b*dot(P2,phi4)+b*dot(P3,phi7)+b*dot(P4,phi1)+b*dot(P1,phi6)+a*dot(P4,phi3) 
+P/4
+" "
+"(a, b) coefficients from roots of unity (x 4)"
+alpha = 1+i
+beta = 1-i
+alpha
+beta
+"============================================================================="
+" "
+"Build a symmetric Scattering Matrix (1/4)*K such that" 
+"upper & lower two rows exchange Psi and Xi conjugates."
+K = ((a, b, b, a),(-a, b, -b, a),(-b, a, -a, b),(b, a, a, b))
+K
+" "
+"-----------------------------------------------------------------------------"
+"Summand becomes (K.Psi)/4 + ((P.K).Xi)/4 --> Out" 
+"Verify against original summand: "
+K = subst(1 + i, a, subst(1 - i, b, K ) )
+P = subst(1 + i, a, subst(1 - i, b, P ) )
+p = dot(transpose(K), K)/8
+psi = (psi5, psi6, psi7, psi8)
+xi = (xi1, xi2, xi3, xi4)
+k2 = dot(K,xi)
+k1 = dot(K,psi)
+kk = k1 + dot(p, k2)
+"Test P[1,2] - Out[1,2]: Re - Im" 
+d = P[1] - kk[1]
+simplify(eval(real(d))) 
+simplify(eval(imag(d)))
+"------"
+d = P[2] - kk[2]
+simplify(eval(real(d))) 
+simplify(eval(imag(d)))
+"-----"
+"P[2,1] - CONJUGATE(Out[1,2])"
+d = P[2]- conj(kk[3])
+simplify(eval(real(d))) 
+simplify(eval(imag(d)))
+"----"
+d = P[1] - conj(kk[4])
+simplify(eval(real(d))) 
+simplify(eval(imag(d)))
+" "
+"Propeties of K and P.K matrices"
+"Determinant: -2^6"
+polar(det(K))
+"K matrix satisfies an anti - Hadamard property (K.K^T)/8."
+dot(K, transpose(K))/8
+"K matrix also has a Permutation property (K^T.K)/8."
+dot(transpose(K), K)/8
+"Frobenius Norm:"
+frobeniusnorm(K)
+"-----------------------------------------------------------------------------"
+"Alternative: K.Psi + K1.Xi, K1 = P.K:"
+K1 = dot(p, K)
+"Determinant: -2^6"
+det(K1)
+" "
+"(K1.K1^T)/8, also anti-Hadamard."
+dot(K1, transpose(K1))/8
+"---- "
+"(K1^T.K1)/8, Permutation property holds for K1 too."
+dot(transpose(K1), K1)/8
+"---- "
+"Frobenius Norm:"
+frobeniusnorm(K)
+"=============================================================================="
+"Alternative separation of original summand separating real and imaginary coefs"
+"Introduce new matrices "
+H1 = ((1, 1, 1, 1),(1, -1, -1, 1),(-1, 1, -1, 1),(-1, -1, 1, 1))
+H2 = ((1, 1, 1, 1),(-1, 1, 1,- 1), (-1, 1, -1, 1),(1, 1, -1, -1))
+H1
+H2
+" "
+"H1,H2 Hadamard"
+"(H1.H1^T)/4:"
+dot(H1, transpose(H1))/4
+"---- "
+"(H2.H2^T)/4:"
+dot(H2, transpose(H2))/4
+"---- "
+"Determinants: "
+det(H1)
+det(H2)
+"Frobenius Norms:"
+frobeniusnorm(H1)
+frobeniusnorm(H2)
+"-----------------------------------------------------------------------------"
+"Original summand becomes (P1.H1).Psi + (P2.H2).xi --> Out."
+"H1.Psi, H2.xi:"
+dot(H1, psi)
+"----"
+dot(H2, xi)
+" ----"
+"Connectivity matrices:"
+P1 = ((1, i, 0, 0),(0, 0, 1, i),(0, 0, 1, i),(1, i, 0, 0))
+P2 = ((0, 0, 1, i),(1, i, 0, 0),(1, i, 0, 0),(0, 0, 1, i))
+P1
+"----"
+P2
+"----"
+pp = dot(dot(P1,H1),psi) + dot(dot(P2,H2),xi)
+"Different symmetry for lower two rows: P[2,1] - Out[1,2]"
+d = P[2] - pp[3]
+simplify(eval(real(d))) 
+simplify(eval(imag(d)))
+d - P[1] - pp[4]
+simplify(eval(real(d))) 
+simplify(eval(imag(d)))
+"-----------------------------------------------------------------------------"
+quit
